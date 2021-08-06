@@ -85,5 +85,7 @@ void LCDcursorRight(uint8_t);	//shif cursor right by n
 void LCDprogressBar(uint8_t progress, uint8_t maxprogress, uint8_t length);
 
 
+
+
 #endif
 

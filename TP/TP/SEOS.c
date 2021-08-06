@@ -7,32 +7,30 @@
 
 #include "seos.h"
 
+volatile unsigned char FLAG_Sensor=0;
+static unsigned char iCont=0;
 
 
 void SEOS_Init(){
-	//configuro Timer0 para interrupciones cada 4 ms
-	
-	OCR0A = 124;
-	TCCR0A = 0x02; //Seteo el timer0 en CTC
-	TCCR0B = 0x04; //Uso preescalador en 256
-	TIMSK0 |= (1<<OCIE0A); //Activo interrupciones de registro OCR0A	
+	//configuro Timer1 para interrupciones cada 100ms	
+	OCR1A = 6249;
+	TCCR1A = 0x00; //Seteo el timer1 en CTC mode
+	TCCR1B = (1<<WGM12) | (1<<CS12); //CTC mode, preescalador en N=256
+	TIMSK1 |= (1<<OCIE1A); //Activo interrupciones de registro OCR01	
 }
 
 void SEOS_Dispatch_Tasks(){
 	
-	if(Flag_MEF==1){ //Esto corre cada 100ms
-		if(++iClock==10){
-			TIMER_Update();
-			iClock=0;
-		}
-		Flag_MEF=0;
-		MEF_Update();
-	}	
+	if(FLAG_Sensor==1){ //Esto corre cada 500ms
+		SYSTEM_Update(); //toma la temp y actualiza el sistema
+		FLAG_Sensor=0;
+	}
 }
 
-ISR(TIMER0_COMPA_vect){ //interrupción cada 4ms
-	if(++iCont==25){
-		Flag_MEF=1;	
+ISR(TIMER1_COMPA_vect){ //interrupción cada 100ms
+	if(++iCont==5){
+		FLAG_Sensor=1;	
 		iCont=0;
 	}
 }
+

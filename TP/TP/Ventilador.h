@@ -10,7 +10,9 @@
 #define VENTILADOR_H_
 
 
-
+void VENTILADOR_Init();
+void VENTILADOR_TurnOff();
+void VENTILADOR_TurnOn();
 
 
 #endif /* VENTILADOR_H_ */

@@ -10,7 +10,8 @@
 #define ADC_H_
 
 
-
+void ADC_Init();
+uint16_t ADC_GetData();
 
 
 #endif /* ADC_H_ */

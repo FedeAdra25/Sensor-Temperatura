@@ -10,9 +10,15 @@
 
 int main(void)
 {
-    /* Replace with your application code */
-    while (1) 
+	LCDinit();
+    SEOS_Init();
+	VENTILADOR_Init();
+	CALEFACTOR_Init();
+	SENSORTEMP_Init();
+	SYSTEM_Init();
+    while (1)
     {
+		SEOS_Dispatch_Tasks();
     }
 }
 

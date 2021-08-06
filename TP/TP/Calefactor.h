@@ -10,7 +10,9 @@
 #define CALEFACTOR_H_
 
 
-
+void CALEFACTOR_Init();
+void CALEFACTOR_TurnOff();
+void CALEFACTOR_TurnOn();
 
 
 #endif /* CALEFACTOR_H_ */
