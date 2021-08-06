@@ -120,7 +120,46 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Calefactor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Calefactor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SensorTemp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SensorTemp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="seos.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="seos.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Ventilador.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Ventilador.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

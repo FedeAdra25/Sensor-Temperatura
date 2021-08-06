@@ -6,12 +6,8 @@
  */ 
 
 #include "seos.h"
-#include "timer.h"
-#include "MEF.h"
 
-volatile unsigned char Flag_MEF=0;
-static unsigned char iCont=0;
-static unsigned char iClock=0;
+
 
 void SEOS_Init(){
 	//configuro Timer0 para interrupciones cada 4 ms
