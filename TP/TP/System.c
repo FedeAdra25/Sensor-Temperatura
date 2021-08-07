@@ -11,7 +11,7 @@
 tempType temperatura = 0;
 static char texto[14] = "TEMP: 00.0 [C]";
 
-void writeLCD(tempType temp);
+static void writeLCD(tempType temp);
 
 void SYSTEM_Init(){
 	LCDclr();
@@ -37,7 +37,7 @@ void SYSTEM_Update(){
 	writeLCD(temperatura);		
 }
 
-void writeLCD(tempType temp){
+static void writeLCD(tempType temp){
 	//texto -> "TEMP: xx.y °C"
 	temp = temp*10;
 	texto[6] = '0' + (temp/100) % 10;
