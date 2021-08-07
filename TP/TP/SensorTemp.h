@@ -12,9 +12,16 @@
 #include "ADC.h"
 
 #define SENSORTEMP_FACTOR 10 //Factor de conversión [°C]
-//Comentar y descomentar en función de como se quiera calcular la temp
+
+
+//Comentar y descomentar en función de si se quiere calcular
+//temp con flotante o con enteros
+#define USING_FLOAT 0
+#ifdef USING_FLOAT
+typedef float tempType;
+#else
 typedef unsigned short tempType;
-//typedef float tempType
+#endif
 
 void SENSORTEMP_Init();
 

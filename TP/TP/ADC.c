@@ -22,7 +22,7 @@ uint16_t ADC_GetData(){
 	//y luego la temperatura
 	
 	ADCSRA |= (1<<ADSC); //Inicializo conversion
-	while((ADCSRA & (1<<ADIF) == 0)); //se bloquea hasta que termina la conversión
+	while(((ADCSRA & (1<<ADIF)) == 0)); //se bloquea hasta que termina la conversión
 	//to-do? timeout para evitar bloqueo?
 	ADCSRA |= (1<<ADIF); //borra flag (debe borrarse si se usa polling)
 	
