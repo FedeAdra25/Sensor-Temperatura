@@ -9,6 +9,7 @@
 #ifndef VENTILADOR_H_
 #define VENTILADOR_H_
 
+#include <avr/io.h>
 
 void VENTILADOR_Init();
 void VENTILADOR_TurnOff();

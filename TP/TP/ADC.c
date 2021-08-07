@@ -5,11 +5,12 @@
  *  Author: fedea
  */ 
 
+#include "ADC.h"
 
 void ADC_Init(){
 	//inicializa el ADC
 	ADMUX=0x00; //Vref -> AREF = 5V , Right justified, pin ADC0
-	ADCSRA = (1<<ADEN) | (1<<ADPS0) | (1<<ADPS1) | (1<<ADPS2) //Enable ADC w/ prescaler 128
+	ADCSRA = (1<<ADEN) | (1<<ADPS0) | (1<<ADPS1) | (1<<ADPS2); //Enable ADC w/ prescaler 128
 	DIDR0 = (1<<ADC0D); //para que consuma menos el MCU deshabilitamos el Digital Input del puerto
 }
 
@@ -21,7 +22,7 @@ uint16_t ADC_GetData(){
 	//y luego la temperatura
 	
 	ADCSRA |= (1<<ADSC); //Inicializo conversion
-	while((ADCSRA&(1<<ADIF) == 0)); //se bloquea hasta que termina la conversión
+	while((ADCSRA & (1<<ADIF) == 0)); //se bloquea hasta que termina la conversión
 	//to-do? timeout para evitar bloqueo?
 	ADCSRA |= (1<<ADIF); //borra flag (debe borrarse si se usa polling)
 	

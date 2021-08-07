@@ -8,6 +8,7 @@
 
 #include "main.h"
 
+
 int main(void)
 {
 	LCDinit();
@@ -16,6 +17,7 @@ int main(void)
 	CALEFACTOR_Init();
 	SENSORTEMP_Init();
 	SYSTEM_Init();
+	sei();
     while (1)
     {
 		SEOS_Dispatch_Tasks();

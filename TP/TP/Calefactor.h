@@ -9,6 +9,7 @@
 #ifndef CALEFACTOR_H_
 #define CALEFACTOR_H_
 
+#include <avr/io.h>
 
 void CALEFACTOR_Init();
 void CALEFACTOR_TurnOff();

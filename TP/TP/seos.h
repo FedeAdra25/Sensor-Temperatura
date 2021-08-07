@@ -9,6 +9,7 @@
 #define SEOS_H_
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "System.h"
 
 
 void SEOS_Init();

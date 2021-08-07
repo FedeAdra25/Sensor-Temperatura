@@ -24,7 +24,9 @@ tempType SENSORTEMP_MeasureTemp(){
 	//calcula la Temperatura en °C
 	//retorna el resultado en tempType
 	
-	uint16_t aux = ADC_GetData();
-	
-	
+	unsigned long aux = ADC_GetData();
+	temperature = aux * ADC_FACTOR; //consigo el voltaje de salida en mV
+	//equivalente a hacer (aux*5000UL)/1024
+	temperature = temperature/SENSORTEMP_FACTOR; //consigo el valor de la temperatura
+	return temperature;
 }

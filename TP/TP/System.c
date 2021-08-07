@@ -9,12 +9,12 @@
 #include "System.h"
 
 tempType temperatura = 0;
-static uint8_t * texto = "TEMP: 00.0°C";
+static char texto[14] = "TEMP: 00.0 [C]";
 
 void writeLCD(tempType temp);
 
 void SYSTEM_Init(){
-	
+	LCDclr();
 }
 
 //Toma la temperatura del sensor y la actualiza en el LCD
@@ -39,10 +39,10 @@ void SYSTEM_Update(){
 
 void writeLCD(tempType temp){
 	//texto -> "TEMP: xx.y °C"
-	uint8_t temp = temp*10;
-	texto[7] = (temp/100) % 10;
-	texto[8] = (temp/10)  % 10;
-	texto[10] = temp%10;
-	LCDclr();
-	LCDstring(texto);
+	temp = temp*10;
+	texto[6] = '0' + (temp/100) % 10;
+	texto[7] = '0' + (temp/10)  % 10;
+	texto[9] = '0' + temp%10;
+	LCDGotoXY(0,0);
+	LCDstring(texto,14);
 }
