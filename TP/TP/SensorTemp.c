@@ -10,10 +10,9 @@
 #include "SensorTemp.h"
 
 
-tempType temperature;
+
 
 void SENSORTEMP_Init(){
-	temperature=24;
 	ADC_Init();
 }
 
@@ -23,6 +22,7 @@ tempType SENSORTEMP_MeasureTemp(){
 	//lo pasa a mV
 	//calcula la Temperatura en °C
 	//retorna el resultado en tempType
+	tempType temperature;
 	
 	unsigned long aux = ADC_GetData();
 	temperature = aux * ADC_FACTOR; //consigo el voltaje de salida en mV

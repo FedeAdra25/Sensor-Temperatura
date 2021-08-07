@@ -8,7 +8,7 @@
 
 #include "System.h"
 
-tempType temperatura = 0;
+static tempType temperatura = 0;
 static char texto[14] = "TEMP: 00.0 [C]";
 
 static void writeLCD(tempType temp);
