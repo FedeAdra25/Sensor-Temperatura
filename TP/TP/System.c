@@ -10,10 +10,14 @@
 
 static tempType temperatura = 0;
 static char texto[14] = "TEMP: 00.0 [C]";
+static unsigned char ventilador_on,calefactor_on;
+
 
 static void writeLCD(tempType temp);
 
 void SYSTEM_Init(){
+	ventilador_on=0;
+	calefactor_on=0;
 	LCDclr();
 }
 
@@ -22,16 +26,26 @@ void SYSTEM_Init(){
 void SYSTEM_Update(){
 	temperatura = SENSORTEMP_MeasureTemp();
 	if(temperatura>MAX_T){
-		VENTILADOR_TurnOn();
+		if(!ventilador_on){
+			VENTILADOR_TurnOn();
+			ventilador_on=1;
+		}
+	}
+	else if(temperatura<MIN_T){
+		if(!calefactor_on){
+			CALEFACTOR_TurnOn();
+			calefactor_on=1;
+		}
 	}
 	else{
-		VENTILADOR_TurnOff();
-	}
-	if(temperatura<MIN_T){
-		CALEFACTOR_TurnOn();
-	}
-	else{
-		CALEFACTOR_TurnOff();
+		if(calefactor_on){
+			CALEFACTOR_TurnOff();
+			calefactor_on=0;
+		}	
+		if(ventilador_on){
+			VENTILADOR_TurnOff();
+			ventilador_on=0;
+		}
 	}
 	//ESCRIBIR EN EL LCD LA TEMPERATURA
 	writeLCD(temperatura);		
