@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff9d0700001d000000c70d000013040000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff1d0000001a0000004706000010040000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="38" flags="00000002" y="129" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="38" flags="00000003" y="129" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">663</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -32,7 +32,7 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="30" x="78" flags="00000008" y="169" h="16" pid="3" iid="1">
+   <POPUP w="226" x="78" flags="00000008" y="169" h="215" pid="3" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="98" flags="0000000a" y="189" h="1" pid="10" iid="1">
@@ -95,19 +95,19 @@
      <ITEM name="TopLineAddress">00000020</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="971" x="0" flags="0000802b" y="123" h="400" pid="1" iid="1">
+   <POPUP w="971" x="99" flags="0000802b" y="204" h="592" pid="1" iid="1">
     <PROPERTIES>
-     <ITEM name="Breakpoint 0">"ADC_Init",00EA,0004,DD20,8762,-1
+     <ITEM name="Breakpoint 0">"SENSORTEMP_MeasureTemp",038C,0004,4882,C6AD,1
 </ITEM>
-     <ITEM name="Breakpoint 1">"ADC_GetData",0102,000A,C20B,8762,-1
+     <ITEM name="Breakpoint 1">"SENSORTEMP_MeasureTemp",03B4,002C,21C0,C6AD,1
 </ITEM>
-     <ITEM name="Breakpoint 2">"SEOS_Dispatch_Tasks",03F4,0008,7FEE,C752,-1
+     <ITEM name="Breakpoint 2">"SENSORTEMP_MeasureTemp",03B4,002C,514F,C6AD,1
 </ITEM>
-     <ITEM name="Breakpoint 3">"SYSTEM_Update",0520,0000,6D60,193F,-1
+     <ITEM name="Breakpoint 3">"SENSORTEMP_MeasureTemp",03B4,002C,21C0,C6AD,1
 </ITEM>
-     <ITEM name="Breakpoint 4">"writeLCD",0438,0004,5B61,193F,-1
+     <ITEM name="Breakpoint 4">"SEOS_Dispatch_Tasks",03EC,0008,7FEE,C752,-1
 </ITEM>
-     <ITEM name="Breakpoint 5">"VENTILADOR_TurnOff",0566,0000,8C36,CC61,1
+     <ITEM name="Breakpoint 5">"__vector_11",0402,000C,6D9A,C752,-1
 </ITEM>
      <ITEM name="Breakpoint 6">"VENTILADOR_TurnOn",056C,0000,A5A4,CC61,1
 </ITEM>
@@ -117,10 +117,10 @@
      <ITEM name="DISPOPCODES">No</ITEM>
      <ITEM name="FIXUPBPTS">Yes</ITEM>
      <ITEM name="WordsOnly">No</ITEM>
-     <ITEM name="nBreakpoints">0</ITEM>
+     <ITEM name="nBreakpoints">3</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="605" x="679" flags="0000000b" y="197" h="650" pid="2" iid="1">
+   <POPUP w="934" x="632" flags="0000000b" y="223" h="650" pid="2" iid="1">
     <PROPERTIES>
      <ITEM name="Address Column Width">94</ITEM>
      <ITEM name="AutoResize">No</ITEM>
@@ -130,9 +130,10 @@
      <ITEM name="ShowAddresses">Yes</ITEM>
      <ITEM name="ShowGlobals">Yes</ITEM>
      <ITEM name="ShowPreviousValues">Yes</ITEM>
-     <ITEM name="ShowTypes">No</ITEM>
+     <ITEM name="ShowTypes">Yes</ITEM>
      <ITEM name="ShowWatchPoint">No</ITEM>
      <ITEM name="TriggerMode">0</ITEM>
+     <ITEM name="Type Column Width">114</ITEM>
      <ITEM name="Value Column Width">94</ITEM>
      <ITEM name="Version">100</ITEM>
      <ITEM name="nItems">0</ITEM>

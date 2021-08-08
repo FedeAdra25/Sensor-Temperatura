@@ -25,12 +25,18 @@ tempType SENSORTEMP_MeasureTemp(){
 	tempType temperature;
 	
 	unsigned long aux = ADC_GetData();
-	temperature = aux * ADC_FACTOR; //consigo el voltaje de salida en mV
+	temperature = (tempType)aux * ADC_FACTOR; //consigo el voltaje de salida en mV
 	//equivalente a hacer (aux*5000UL)/1024
 	temperature = temperature/SENSORTEMP_FACTOR; //consigo el valor de la temperatura
-	#if USING_FLOAT==1 //Como la resulución es de 0.5°C (aprox) fuerzo el incremento de temperatura a 0.5
-	aux=temperature;
-	temperature = ((temperature-aux>0.33) ? aux+0.5 : (temperature-aux>0.66) ? aux+1:aux);
+	
+	
+	//Como la resulución es de 0.5°C (aprox) fuerzo el incremento de temperatura a 0.5
+	//((solo si trabajo con floats))
+	
+	#ifdef USING_FLOAT
+		aux=temperature;
+		temperature = ((temperature-aux>0.33 && temperature-aux<0.66) ? aux+0.5 : (temperature-aux>0.66) ? aux+1:aux);
 	#endif
+	
 	return temperature;
 }
