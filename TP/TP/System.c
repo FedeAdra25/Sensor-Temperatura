@@ -53,10 +53,10 @@ void SYSTEM_Update(){
 
 static void writeLCD(tempType temp){
 	//texto -> "TEMP: xx.y °C"
-	temp = temp*100;
-	texto[6] = '0' + ((unsigned short)temp/1000) % 10;
-	texto[7] = '0' + ((unsigned short)temp/100)  % 10;
-	texto[9] = '0' + (unsigned short)temp/10     % 10;
+	temp = temp*10;
+	texto[6] = '0' + ((unsigned short)temp/100) % 10;
+	texto[7] = '0' + ((unsigned short)temp/10)  % 10;
+	texto[9] = '0' + (unsigned short)temp       % 10;
 	//texto[10] = '0' + (unsigned short)temp        %10;
 	LCDGotoXY(0,0);
 	LCDstring(texto,14);
